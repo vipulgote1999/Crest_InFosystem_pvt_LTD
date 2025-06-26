@@ -12,9 +12,11 @@
 import os
 from huggingface_hub import InferenceClient
 
+
+HUGGINGFACEHUB_API_TOKEN = os.getenv("HUGGINGFACE_TOKEN")
 client = InferenceClient(
     model="sentence-transformers/all-MiniLM-L6-v2",provider="hf-inference",
-    api_key="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",
+    api_key=HUGGINGFACEHUB_API_TOKEN,
 )
 
 def retrieve_chunks_remote(question, chunks, top_k=2):

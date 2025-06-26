@@ -10,9 +10,11 @@ from langchain_core.documents import Document
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_core.runnables import RunnableMap, RunnablePassthrough
 from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
+import os
+
 
 # 🔑 Set your Hugging Face API Token
-HUGGINGFACEHUB_API_TOKEN = "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"
+HUGGINGFACEHUB_API_TOKEN = os.getenv("HUGGINGFACE_TOKEN")
 os.environ["HUGGINGFACEHUB_API_TOKEN"] = HUGGINGFACEHUB_API_TOKEN
 
 # 1. Load PDF using pdfplumber

@@ -11,9 +11,10 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_core.runnables import RunnableMap
 from langchain_huggingface import ChatHuggingFace
 import gradio as gr
+import os
 
 # 🔑 Set your Hugging Face API Token
-HUGGINGFACEHUB_API_TOKEN = "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"
+HUGGINGFACEHUB_API_TOKEN = os.getenv("HUGGINGFACE_TOKEN")
 os.environ["HUGGINGFACEHUB_API_TOKEN"] = HUGGINGFACEHUB_API_TOKEN
 
 vector_db = None  # Global state

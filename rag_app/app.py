@@ -3,12 +3,14 @@ from utils.loaders import load_pdf_chunks, load_csv_chunks
 from utils.retriever import retrieve_chunks
 from utils.llm_api import query_huggingface_model
 from utils.logger import log_interaction
+import os
+HUGGINGFACEHUB_API_TOKEN = os.getenv("HUGGINGFACE_TOKEN")
 
 def build_prompt(context, question):
     return f"Context:\n{context}\n\nQuestion: {question}\n\nAnswer:"
 
 def summarize_text(text):
-    return query_huggingface_model(f"Summarize:\n{text}", model="google/flan-t5-base", token="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")
+    return query_huggingface_model(f"Summarize:\n{text}", model="google/flan-t5-base", token=HUGGINGFACEHUB_API_TOKEN)
 
 def main(filepath, question, filetype):
     chunks = load_pdf_chunks(filepath) if filetype == "pdf" else load_csv_chunks(filepath)
@@ -16,7 +18,7 @@ def main(filepath, question, filetype):
     context = "\n\n".join(top_chunks)
     
     prompt = build_prompt(context, question)
-    answer = query_huggingface_model(prompt, token="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")
+    answer = query_huggingface_model(prompt, token="xxxxxxxxxxxxxxxx")
     summary = summarize_text(answer)
 
     print("\n📝 Detailed Answer:\n", answer)

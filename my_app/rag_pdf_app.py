@@ -11,7 +11,7 @@ from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
 
 
 # 🔑 Set your Hugging Face API Token
-HUGGINGFACEHUB_API_TOKEN = "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"
+HUGGINGFACEHUB_API_TOKEN = os.getenv("HUGGINGFACE_TOKEN")
 os.environ["HUGGINGFACEHUB_API_TOKEN"] = HUGGINGFACEHUB_API_TOKEN
 
 # 1. Load PDF using pdfplumber
