@@ -1,0 +1,5 @@
+fitz
+pandas
+requests
+openai
+huggingface_hub
