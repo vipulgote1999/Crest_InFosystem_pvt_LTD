@@ -60,10 +60,10 @@ export HUGGINGFACEHUB_API_TOKEN=your_token_here
 
 ## 🏃 Running the App
 
-Simply run the `app.py` script:
+Simply run the `final_app.py` script:
 
 ```bash
-python app.py
+python final_app.py
 ```
 
 Gradio will start the web UI on a local URL (typically http://127.0.0.1:7860). Open it in your browser.
